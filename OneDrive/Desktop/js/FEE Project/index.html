@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgriHub - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">AgriHub</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="policies.html">Policies</a></li>
+            <li><a href="helpline.html">Helpline</a></li>
+            <li><a href="planning.html">Planning</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome to AgriHub</h1>
+        <p>Simple tools for smart farmers.</p>
+    </header>
+    <main>
+        <div class="feature-grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800" alt="Farmer" class="img-card" referrerPolicy="no-referrer">
+                <h2>Our Mission</h2>
+                <p>Supporting the backbone of our nation with modern tools and timely information.</p>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkMLT-fR4BOolE83mIN1YHwyPAyM6pjTO-UQ&s" alt="Modern Tractor" class="img-card" referrerPolicy="no-referrer">
+                <h2>Modern Farming</h2>
+                <p>Bringing technology to the fields for better yield and sustainable practices.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Local Centers</h2>
+            <input type="text" id="tableSearch" placeholder="Search centers..." style="width:100%; padding:10px; margin-bottom:10px;">
+            <table>
+                <thead>
+                    <tr><th>Name</th><th>Location</th><th>Type</th></tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Quick Links</h2>
+            <div class="link-grid">
+                <a href="https://agricoop.nic.in" target="_blank" class="gov-link">Agriculture Dept</a>
+                <a href="https://pmkisan.gov.in" target="_blank" class="gov-link">PM-Kisan</a>
+                <a href="https://enam.gov.in" target="_blank" class="gov-link">e-NAM Portal</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 AgriHub Project - Empowering Farmers</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
