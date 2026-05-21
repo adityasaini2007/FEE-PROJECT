@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watering Timer - AgriConnect</title>
+    <meta name="description" content="Smart watering timer that uses live weather data to recommend the best watering schedule for your crops.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn">Policies</a>
+            <a href="helpline.html" class="nav-btn">Helplines</a>
+            <a href="watering.html" class="nav-btn active">Watering</a>
+            <a href="diagnostic.html" class="nav-btn">Diagnostic</a>
+            <a href="profit.html" class="nav-btn">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <main class="container">
+        <section id="wateringPage" class="page-section fade-in">
+
+            <!-- ── Live Weather Widget ── -->
+            <div class="card glass-effect weather-widget">
+                <h3 class="widget-title">🌤️ Live Weather</h3>
+                <p class="widget-subtitle">Fetch your local weather to auto-set temperature &amp; get a smart watering recommendation.</p>
+
+                <div class="weather-search-row">
+                    <input type="text" id="cityInput" placeholder="Enter city name (e.g. Mumbai)" />
+                    <button id="fetchWeatherBtn" class="primary-btn weather-fetch-btn">
+                        <span id="weatherBtnText">Get Weather</span>
+                        <span id="weatherBtnSpinner" class="spinner hidden"></span>
+                    </button>
+                </div>
+
+                <div id="weatherResult" class="weather-result hidden">
+                    <div class="weather-main">
+                        <div class="weather-icon-large" id="weatherEmoji">🌡️</div>
+                        <div class="weather-temp-block">
+                            <span class="weather-temp-value" id="weatherTempDisplay">--</span>
+                            <span class="weather-temp-unit">°C</span>
+                        </div>
+                    </div>
+                    <div class="weather-meta">
+                        <div class="weather-meta-item">
+                            <span class="meta-label">Condition</span>
+                            <span class="meta-value" id="weatherCondition">--</span>
+                        </div>
+                        <div class="weather-meta-item">
+                            <span class="meta-label">Humidity</span>
+                            <span class="meta-value" id="weatherHumidity">--%</span>
+                        </div>
+                        <div class="weather-meta-item">
+                            <span class="meta-label">Location</span>
+                            <span class="meta-value" id="weatherLocation">--</span>
+                        </div>
+                    </div>
+                    <div class="weather-advice" id="weatherAdvice"></div>
+                </div>
+
+                <div id="weatherError" class="weather-error hidden">
+                    ⚠️ Could not find weather for that city. Please check the spelling and try again.
+                </div>
+            </div>
+
+            <!-- ── Timer Card ── -->
+            <div class="card glass-effect center-content">
+                <img src="watering-icon.png" alt="Smart Watering" class="feature-icon-img">
+                <h2>Smart Watering Timer</h2>
+                <div class="input-group">
+                    <label>Last watered (Hours ago):</label>
+                    <input type="number" id="waterLast" min="0" placeholder="e.g. 12">
+                </div>
+                <div class="input-group">
+                    <label>Temperature (°C):</label>
+                    <div class="temp-input-row">
+                        <input type="number" id="waterTemp" placeholder="e.g. 30">
+                        <span class="auto-fill-badge hidden" id="autoFillBadge">⚡ Auto-filled</span>
+                    </div>
+                </div>
+                <button id="startTimerBtn" class="primary-btn mt-1">Calculate Next &amp; Start Timer</button>
+
+                <div id="timerDisplay" class="timer-box mt-2 hidden">
+                    <h3>Next watering in:</h3>
+                    <div class="time-readout" id="countdownReadout">00:00:00</div>
+                    <div class="timer-cycle-info" id="timerCycleInfo"></div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="waterProgressBar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="onboardingModal" class="modal-overlay hidden">
+        <div class="modal glass-effect">
+            <h2>Please setup your profile on the Dashboard</h2>
+            <a href="index.html" class="primary-btn mt-1">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
