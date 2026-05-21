@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AgriHub - Policies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies - AgriConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">AgriHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="policies.html">Policies</a></li>
-            <li><a href="helpline.html">Helpline</a></li>
-            <li><a href="planning.html">Planning</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
+    <!-- Navbar Container -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn active">Policies</a>
+            <a href="helpline.html" class="nav-btn">Helplines</a>
+            <a href="watering.html" class="nav-btn">Watering</a>
+            <a href="diagnostic.html" class="nav-btn">Diagnostic</a>
+            <a href="profit.html" class="nav-btn">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
     </nav>
-    <header style="background: linear-gradient(rgba(21, 128, 61, 0.8), rgba(22, 101, 52, 0.9)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center;">
-        <h1>Government Policies</h1>
-        <p>Find the latest schemes and subsidies available for you.</p>
-    </header>
-    <main>
-        <div class="card">
-            <h2>Search Policies</h2>
-            <input type="text" id="policySearch" placeholder="Search by keyword (e.g. 'subsidy', 'loan', 'seeds')...">
-            <div id="policyList">
-                <!-- Policies will be injected here -->
-            </div>
-        </div>
 
-        <div class="card">
-            <h2>Official Government Resources</h2>
-            <p>Access official portals for detailed information and applications.</p>
-            <div class="link-grid">
-                <a href="https://agricoop.nic.in" target="_blank" class="gov-link">Dept of Agriculture & Farmers Welfare</a>
-                <a href="https://pmkisan.gov.in" target="_blank" class="gov-link">PM-Kisan Official Portal</a>
-                <a href="https://pmfby.gov.in" target="_blank" class="gov-link">Crop Insurance Portal (PMFBY)</a>
-                <a href="https://enam.gov.in" target="_blank" class="gov-link">e-NAM (National Agriculture Market)</a>
-                <a href="https://dbtagriculture.bihar.gov.in" target="_blank" class="gov-link">DBT Agriculture Portal</a>
-                <a href="https://icar.org.in" target="_blank" class="gov-link">ICAR - Indian Council of Agri Research</a>
+    <!-- Main Container -->
+    <main class="container">
+        <section id="policyPage" class="page-section fade-in">
+            <div class="filter-bar glass-effect">
+                <input type="text" id="searchInput" placeholder="Search policies...">
             </div>
-        </div>
+            <div class="grid-content">
+                <div class="card glass-effect full-width" style="text-align: center;">
+                    <img src="policies-icon.png" alt="Policies" class="feature-icon-img">
+                    <h2>Gov Policies</h2>
+                    <ul id="policyList" class="list-container mt-2" style="text-align: left;"></ul>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 AgriHub Project - Empowering Farmers</p>
-    </footer>
+
+    <!-- Onboarding placeholder to prevent errors if LocalStorage misses -->
+    <div id="onboardingModal" class="modal-overlay hidden">
+        <div class="modal glass-effect">
+            <h2>Please setup your profile on the Dashboard</h2>
+            <a href="index.html" class="primary-btn mt-1">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
