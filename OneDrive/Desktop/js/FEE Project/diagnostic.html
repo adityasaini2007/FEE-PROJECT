@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Tool - AgriConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar Container -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn">Policies</a>
+            <a href="helpline.html" class="nav-btn">Helplines</a>
+            <a href="watering.html" class="nav-btn">Watering</a>
+            <a href="diagnostic.html" class="nav-btn active">Diagnostic</a>
+            <a href="profit.html" class="nav-btn">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <section id="diagnosticPage" class="page-section fade-in">
+            <div class="card glass-effect" style="text-align: center;">
+                <img src="diagnostic-icon.png" alt="Diagnostic Tool" class="feature-icon-img">
+                <h2>Diagnostic Tool</h2>
+                <div id="diagContainer" class="diag-container mt-2" style="text-align: left;">
+                    <!-- Dynamic content injected here -->
+                </div>
+                <button id="resetDiagBtn" class="secondary-btn hidden mt-1">Restart Diagnostic</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Onboarding placeholder -->
+    <div id="onboardingModal" class="modal-overlay hidden">
+        <div class="modal glass-effect">
+            <h2>Please setup your profile on the Dashboard</h2>
+            <a href="index.html" class="primary-btn mt-1">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
