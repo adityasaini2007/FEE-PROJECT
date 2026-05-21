@@ -1,42 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AgriHub - Planning</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Ledger - AgriConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">AgriHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="policies.html">Policies</a></li>
-            <li><a href="helpline.html">Helpline</a></li>
-            <li><a href="planning.html">Planning</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
+    <!-- Navbar Container -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn">Policies</a>
+            <a href="helpline.html" class="nav-btn">Helplines</a>
+            <a href="watering.html" class="nav-btn">Watering</a>
+            <a href="diagnostic.html" class="nav-btn">Diagnostic</a>
+            <a href="profit.html" class="nav-btn active">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
     </nav>
-    <header style="background: linear-gradient(rgba(21, 128, 61, 0.8), rgba(22, 101, 52, 0.9)), url('https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center;">
-        <h1>Crop Planning</h1>
-        <p>Plan your season with our smart crop calendar.</p>
-    </header>
-    <main>
-        <div class="card" style="text-align:center;">
-            <h2>Irrigation Timer</h2>
-            <p>Next watering cycle in:</p>
-            <div id="timer" class="timer-display">60:00</div>
-        </div>
-        <div class="card">
-            <h2>Crop Calendar</h2>
-            <ul>
-                <li>March: Wheat</li>
-                <li>April: Rice</li>
-                <li>May: Maize</li>
-            </ul>
-        </div>
+
+    <!-- Main Container -->
+    <main class="container">
+        <section id="profitPage" class="page-section fade-in">
+            <div class="card glass-effect" style="text-align: center;">
+                <div class="feature-icon-img emoji-icon">📈</div>
+                <h2>Profit & Expense Calculator</h2>
+                <form id="ledgerForm" class="grid-form mt-2" style="text-align: left;">
+                    <div class="input-group">
+                        <label>Seed Cost (₹)</label>
+                        <input type="number" id="seedCost" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Fertilizer Cost (₹)</label>
+                        <input type="number" id="fertCost" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Labor Cost (₹)</label>
+                        <input type="number" id="laborCost" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Expected Revenue (₹)</label>
+                        <input type="number" id="exRevenue" required>
+                    </div>
+                    <button type="submit" class="primary-btn full-width">Calculate</button>
+                </form>
+
+                <div id="calcResult" class="result-box mt-2 hidden">
+                    <h3>Net Profit / Loss:</h3>
+                    <div id="profitValue" class="massive-text">₹ 0</div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 AgriHub Project - Empowering Farmers</p>
-    </footer>
+    
+    <!-- Onboarding placeholder -->
+    <div id="onboardingModal" class="modal-overlay hidden">
+        <div class="modal glass-effect">
+            <h2>Please setup your profile on the Dashboard</h2>
+            <a href="index.html" class="primary-btn mt-1">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
