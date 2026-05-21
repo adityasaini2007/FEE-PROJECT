@@ -1,45 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AgriHub - Feedback</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - AgriConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">AgriHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="policies.html">Policies</a></li>
-            <li><a href="helpline.html">Helpline</a></li>
-            <li><a href="planning.html">Planning</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-    </nav>
-    <header style="background: linear-gradient(rgba(21, 128, 61, 0.8), rgba(22, 101, 52, 0.9)), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center;">
-        <h1>Your Feedback</h1>
-        <p>Help us improve our services for the farming community.</p>
-    </header>
-    <main>
-        <div class="card">
-            <h2>Feedback</h2>
-            <div id="step1">
-                <p>1. How was your experience?</p>
-                <button class="btn" onclick="nextStep('step2')">Good</button>
-                <button class="btn" onclick="nextStep('step2')">Bad</button>
-            </div>
-            <div id="step2" style="display:none;">
-                <p>2. Any suggestions?</p>
-                <textarea style="width:100%; height:100px;"></textarea><br><br>
-                <button class="btn" onclick="nextStep('success')">Submit</button>
-            </div>
-            <div id="success" style="display:none;">
-                <p>✅ Thank you for your feedback!</p>
-            </div>
+    <!-- Navbar Container -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
         </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn">Policies</a>
+            <a href="helpline.html" class="nav-btn">Helplines</a>
+            <a href="watering.html" class="nav-btn">Watering</a>
+            <a href="diagnostic.html" class="nav-btn">Diagnostic</a>
+            <a href="profit.html" class="nav-btn">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn active">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <section id="feedbackPage" class="page-section fade-in">
+            <div class="grid-content">
+                <div class="card glass-effect half-col" style="text-align: center;">
+                    <div class="feature-icon-img emoji-icon">💬</div>
+                    <h2>Submit Feedback</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-secondary);">Help us improve your toolset.</p>
+                    
+                    <form id="feedbackForm" style="text-align: left;">
+                        <div class="input-group">
+                            <label>Feedback Concept</label>
+                            <input type="text" id="fbSubject" placeholder="e.g. New crop suggestions request..." required>
+                        </div>
+                        <div class="input-group">
+                            <label>Details</label>
+                            <textarea id="fbBody" rows="4" style="width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--input-border); border-radius: 8px; background: var(--input-bg); color: var(--text-primary); font-family: inherit; resize: vertical;" placeholder="Describe what you want added or changed..." required></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn">Save Offline Feedback</button>
+                    </form>
+                </div>
+                
+                <div class="card glass-effect half-col">
+                    <h3>Your Previous Feedback</h3>
+                    <ul id="pastFeedbackList" class="list-container mt-2">
+                        <!-- injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 AgriHub Project - Empowering Farmers</p>
-    </footer>
+
+    <!-- Onboarding placeholder -->
+    <div id="onboardingModal" class="modal-overlay hidden">
+        <div class="modal glass-effect">
+            <h2>Please setup your profile on the Dashboard</h2>
+            <a href="index.html" class="primary-btn mt-1">Go to Dashboard</a>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
