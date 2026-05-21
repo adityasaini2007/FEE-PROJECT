@@ -1,34 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AgriHub - Helpline</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helplines - AgriConnect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">AgriHub</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="policies.html">Policies</a></li>
-            <li><a href="helpline.html">Helpline</a></li>
-            <li><a href="planning.html">Planning</a></li>
-            <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-    </nav>
-    <header style="background: linear-gradient(rgba(21, 128, 61, 0.8), rgba(22, 101, 52, 0.9)), url('https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=1920'); background-size: cover; background-position: center;">
-        <h1>Expert Helpline</h1>
-        <p>Talk to our agricultural experts for any assistance.</p>
-    </header>
-    <main>
-        <div class="card" style="text-align:center;">
-            <h2>Need Help?</h2>
-            <p>Our experts are ready to assist you.</p>
-            <button class="btn" onclick="window.location.href='tel:1800123456'">Call 1800-123-456</button>
+    <!-- Navbar Container -->
+    <nav class="navbar glass-effect">
+        <div class="nav-brand">
+            <span class="icon">🌱</span> <span>AgriConnect</span>
         </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Dashboard</a>
+            <a href="policies.html" class="nav-btn">Policies</a>
+            <a href="helpline.html" class="nav-btn active">Helplines</a>
+            <a href="watering.html" class="nav-btn">Watering</a>
+            <a href="diagnostic.html" class="nav-btn">Diagnostic</a>
+            <a href="profit.html" class="nav-btn">Profit Ledger</a>
+            <a href="feedback.html" class="nav-btn">Feedback</a>
+        </div>
+        <button class="mobile-toggle">☰</button>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <section id="helplinePage" class="page-section fade-in">
+            <div class="card glass-effect full-width" style="text-align: center;">
+                <img src="helpline-icon.png" alt="Helplines" class="feature-icon-img">
+                <h2>Important Helplines</h2>
+                <div class="filter-bar mt-2" style="text-align: left;">
+                    <input type="text" id="helpSearchInput" placeholder="Search helplines by department or number...">
+                </div>
+                <ul id="helplineList" class="list-container mt-2" style="text-align: left;"></ul>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2026 AgriHub Project - Empowering Farmers</p>
-    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
